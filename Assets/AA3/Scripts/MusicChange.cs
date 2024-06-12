@@ -2,26 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using FMODUnity;
 
 public class MusicChange : MonoBehaviour
 {
 
-    public AudioMixerSnapshot baseSnapshot;
-    public AudioMixerSnapshot calmSnapshot;
-    public AudioMixerSnapshot combatSnapshot;
+    //public AudioMixerSnapshot baseSnapshot;
+    //public AudioMixerSnapshot calmSnapshot;
+    //public AudioMixerSnapshot combatSnapshot;
 
-    public float transitionTime = 2.0f;
-    public float transitionTimeCombat = 0.5f;
+    //public float transitionTime = 2.0f;
+    //public float transitionTimeCombat = 0.5f;
+
+    public FMODUnity.StudioEventEmitter calmSnapshot;
+    public FMODUnity.StudioEventEmitter combatSnapshot;
+    public FMODUnity.StudioEventEmitter baseSnapshot;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "tensionArea")
         {
-            calmSnapshot.TransitionTo(transitionTime);
+            
+            baseSnapshot.Stop();
+            calmSnapshot.Play();
+            combatSnapshot.Stop();
         }
-        else if (other.gameObject.tag == "indoor") 
+        else if (other.gameObject.tag == "Indoor") 
         {
-        combatSnapshot.TransitionTo(transitionTimeCombat);
+            combatSnapshot.Play();
+            calmSnapshot.Stop();
+            baseSnapshot.Stop();
         }
     }
 
@@ -29,11 +39,13 @@ public class MusicChange : MonoBehaviour
     {
         if (other.gameObject.tag == "tensionArea")
         {
-            baseSnapshot.TransitionTo(transitionTime);
+            baseSnapshot.Play();
+            calmSnapshot.Stop();
         }
-        else if (other.gameObject.tag == "indoor")
+        else if (other.gameObject.tag == "Indoor")
         {
-            calmSnapshot.TransitionTo(transitionTimeCombat);
+            combatSnapshot.Stop();
+            calmSnapshot.Play();
         }
     }
 }
