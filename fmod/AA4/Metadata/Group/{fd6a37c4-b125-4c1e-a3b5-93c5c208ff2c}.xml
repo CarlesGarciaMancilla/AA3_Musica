@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerGroup" id="{fd6a37c4-b125-4c1e-a3b5-93c5c208ff2c}">
+		<property name="name">
+			<value>CalmM</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{75f9477e-cd1a-44b5-af90-4f59445cb36b}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{d3a1770a-274c-4068-ae76-5b7d6b6d58e8}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{5acad031-9fc6-4164-8265-8f529911ffb3}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{75f9477e-cd1a-44b5-af90-4f59445cb36b}">
+		<relationship name="effects">
+			<destination>{24e7d791-60bf-46c1-a137-c4ec1370e438}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{d3a1770a-274c-4068-ae76-5b7d6b6d58e8}" />
+	<object class="MixerBusFader" id="{24e7d791-60bf-46c1-a137-c4ec1370e438}" />
+</objects>

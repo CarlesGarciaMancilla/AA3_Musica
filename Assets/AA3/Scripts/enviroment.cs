@@ -1,25 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
+using FMODUnity;
 
-public class enviroment : MonoBehaviour
+public class EnvironmentChange : MonoBehaviour
 {
+    public FMODUnity.StudioEventEmitter snapshotEmitter;
 
-    public AudioMixerSnapshot snapshotIndoor;
-    public AudioMixerSnapshot snapshotOutdoor;
-    // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "indoor") 
+        if (other.gameObject.tag == "Indoor")
         {
-            snapshotIndoor.TransitionTo(0.5f);
+            snapshotEmitter.Play();
         }
-        
+
     }
 
     private void OnTriggerExit(Collider other)
     {
-        snapshotOutdoor.TransitionTo(0.5f);
+        if (other.gameObject.tag == "Indoor")
+        {
+            snapshotEmitter.Stop();
+        }
     }
 }

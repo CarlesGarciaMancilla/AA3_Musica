@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{d05350e9-7f2c-4239-9912-bbb4edee59d7}">
+		<property name="assetPath">
+			<value>Combat.ogg</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>113.45455782312925</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{02ca850a-1079-4826-a477-6edde3543ad7}</destination>
+		</relationship>
+	</object>
+</objects>
